@@ -3,7 +3,7 @@
 class Ticket < ApplicationRecord
   validates :name, :email, :subject, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  enum status: [:new, :pending, :resolved]
+  enum ticket_status: [:new_ticket, :pending, :resolved]
 
   # Generate CSV file
   def self.to_csv

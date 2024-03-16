@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2024_03_14_140429) do
     t.string "email"
     t.string "subject"
     t.text "content"
-    t.integer "status", default: 0
+    t.integer "ticket_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

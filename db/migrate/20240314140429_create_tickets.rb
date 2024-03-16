@@ -5,7 +5,7 @@ class CreateTickets < ActiveRecord::Migration[6.1]
       t.string :email
       t.string :subject
       t.text :content
-      t.integer :status, default: 0
+      t.integer :ticket_status, default: 0
 
       t.timestamps
     end
