@@ -7,10 +7,8 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      File.open('tickets.csv', 'a') do |file|
-        file.puts @ticket.to_csv
-      end
-      redirect_to @ticket, notice: 'Ticket was successfully created.'
+      @ticket.save_to_csv
+      redirect_to tickets_path, notice: 'Ticket created successfully.'
     else
       render :new
     end

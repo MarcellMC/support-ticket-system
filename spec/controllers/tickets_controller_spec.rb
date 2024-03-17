@@ -8,6 +8,16 @@ RSpec.describe TicketsController, type: :controller do
     end
   end
 
+  describe 'POST #create' do
+    it 'creates a new ticket' do
+      expect {
+        post :create, params: { ticket: { name: 'John Doe', email: 'john.doe@example.com', subject: 'Test Ticket', content: 'Test Content' } }
+      }.to change(Ticket, :count).by(1)
+
+      expect(response).to redirect_to(tickets_path)
+    end
+  end
+
   describe 'routing' do
     it 'routes to #index' do
       expect(get: '/tickets').to route_to('tickets#index')
