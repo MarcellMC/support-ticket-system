@@ -3,10 +3,14 @@ class TicketsController < ApplicationController
     @tickets = Ticket.all
   end
 
+  def new
+    @ticket = Ticket.new
+  end
+
   def create
     @ticket = Ticket.new(ticket_params)
 
-    if @ticket.save
+    if @ticket.save # TODO: Validate only
       @ticket.save_to_csv
       redirect_to tickets_path, notice: 'Ticket created successfully.'
     else
