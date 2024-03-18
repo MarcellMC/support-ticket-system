@@ -18,6 +18,22 @@ RSpec.describe TicketsController, type: :controller do
     end
   end
 
+  describe 'GET manage' do
+    it 'assigns all tickets to @tickets' do
+      ticket1 = Ticket.create(name: 'John Doe', email: 'john@example.com', subject: 'Ticket 1', content: 'This is ticket 1')
+      ticket2 = Ticket.create(name: 'Jane Doe', email: 'jane@example.com', subject: 'Ticket 2', content: 'This is ticket 2')
+
+      get :manage
+      expect(assigns(:tickets)).to include(ticket1, ticket2)
+    end
+
+    it 'renders the manage view' do
+      get :manage
+      expect(response).to render_template(:manage)
+    end
+  end
+
+
   describe 'routing' do
     it 'routes to #index' do
       expect(get: '/tickets').to route_to('tickets#index')

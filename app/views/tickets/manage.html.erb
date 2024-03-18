@@ -1,0 +1,19 @@
+<h1>Manage View</h1>
+
+<div class="container ml-4 mr-4">
+  <% @tickets.each do |ticket| %>
+    <div class="card mb-3">
+      <div class="card-header">
+        Ticket ID: <%= ticket.id %>
+      </div>
+      <div class="card-body">
+        <p>Name: <%= ticket.name %></p>
+        <p>Email: <%= ticket.email %></p>
+        <p>Status: <%= ticket.ticket_status %></p>
+        <p>Subject: <%= ticket.subject %></p>
+        <p>Content: <%= ticket.content %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+

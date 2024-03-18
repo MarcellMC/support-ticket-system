@@ -7,6 +7,10 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def manage
+    @tickets = Ticket.all
+  end
+
   def create
     @ticket = Ticket.new(ticket_params)
 
