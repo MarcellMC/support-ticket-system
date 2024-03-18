@@ -7,7 +7,6 @@
     <th>Status</th>
     <th>Subject</th>
     <th>Content</th>
-    <th>Actions</th>
   </tr>
   <% @tickets.each do |ticket| %>
     <tr>
@@ -16,11 +15,10 @@
       <td><%= ticket.ticket_status %></td>
       <td><%= ticket.subject %></td>
       <td><%= ticket.content %></td>
-      <td>
-        <%= link_to 'Edit', edit_ticket_path(ticket) %>
-        <%= link_to 'Delete', ticket, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </td>
     </tr>
   <% end %>
+  <tr>
+    <td><%= link_to 'New Ticket', new_ticket_path %></td>
+  </tr>
 </table>
 
