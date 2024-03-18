@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
   describe '#save_to_csv' do
-    let(:temp_csv_file) { 'temp_tickets.csv' }
+    let(:temp_csv_file) { 'storage/temp_tickets.csv' }
 
     after(:each) do
       File.delete(temp_csv_file) if File.exist?(temp_csv_file) # Delete temporary CSV file after each test

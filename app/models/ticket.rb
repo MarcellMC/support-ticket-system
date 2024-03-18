@@ -3,7 +3,7 @@ require 'csv'
 ##
 # Support ticket model
 class Ticket < ApplicationRecord
-  CSV_FILE_PATH = Rails.root.join('data', 'tickets.csv')
+  CSV_FILE_PATH = Rails.root.join('storage', 'tickets.csv')
 
   validates :name, :email, :subject, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
