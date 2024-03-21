@@ -1,6 +1,12 @@
 <h1>Manage View</h1>
 
 <div class="container ml-4 mr-4">
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <table class="table table-bordered">
     <thead>
       <tr>
