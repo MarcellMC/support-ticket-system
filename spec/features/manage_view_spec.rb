@@ -15,9 +15,19 @@ RSpec.feature 'Manage View', type: :feature do
     click_link 'Edit', match: :first
     expect(current_path).to eq(edit_ticket_path(ticket1))
 
-    # Test Delete link functionality
+    # Check if we are on the Edit page before interacting with Delete button
+    expect(page).to have_content('Edit Ticket')
+
+    # Go back to Manage View
+    visit manage_tickets_path
+
+    # Test Delete link functionality on Manage View page
+    expect(page).to have_link('Delete', count: 2)
     click_link 'Delete', match: :first
-    expect(page).to have_content('Ticket deleted successfully') # Assuming a flash message is displayed after deletion
+
+    # Confirm deletion if needed (depending on your app's behavior)
+    # Assuming a flash message is displayed after deletion
+    expect(page).to have_content('Ticket deleted successfully') 
     expect(Ticket.count).to eq(1) # Assuming one ticket is deleted
   end
 end
