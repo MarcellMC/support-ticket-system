@@ -1,0 +1,10 @@
+<!-- app/views/tickets/show.html.erb -->
+<h1>Ticket Details</h1>
+
+<p><strong>Name:</strong> <%= @ticket.name %></p>
+<p><strong>Email:</strong> <%= @ticket.email %></p>
+<p><strong>Subject:</strong> <%= @ticket.subject %></p>
+<p><strong>Content:</strong> <%= @ticket.content %></p>
+<p><strong>Status:</strong> <%= @ticket.ticket_status %></p>
+
+<%= link_to 'Back to Tickets', tickets_path %>
